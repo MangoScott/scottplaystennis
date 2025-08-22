@@ -39,6 +39,33 @@
             opacity: 0.6;
         }
 
+        .subscribe-button {
+            display: inline-block;
+            background: #FF0000;
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 2px;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.2s ease;
+            margin-bottom: 1.5rem;
+        }
+
+        .subscribe-button:hover {
+            background: #CC0000;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3);
+        }
+
+        .subscribe-button::before {
+            content: '▶';
+            margin-right: 6px;
+            font-size: 0.7rem;
+        }
+
         /* Navigation */
         nav {
             display: flex;
@@ -236,6 +263,9 @@
     <!-- Header -->
     <header>
         <a href="index.html" class="site-title">← Scott plays Tennis</a>
+        <div>
+            <a href="https://youtube.com/@ScottPlaysTennis" target="_blank" class="subscribe-button">Subscribe on YouTube</a>
+        </div>
         <nav>
             <a href="index.html#blog">Blog</a>
             <a href="index.html#videos">Videos</a>
