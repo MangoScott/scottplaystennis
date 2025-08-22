@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grapplesnake Strings Review: Finding My Perfect Setup - Scott plays Tennis</title>
+    <title>Scott plays Tennis</title>
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23CCFF00'/%3E%3Cpath d='M16 2 Q 8 10, 8 16 T 16 30' fill='none' stroke='white' stroke-width='1.5'/%3E%3Cpath d='M16 2 Q 24 10, 24 16 T 16 30' fill='none' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E">
     <!-- Fallback for older browsers -->
@@ -24,23 +24,35 @@
 
         /* Header */
         header {
-            padding: 3rem 1.5rem;
+            padding: 6rem 1.5rem 5rem;
             text-align: center;
-            border-bottom: 1px solid #f0f0f0;
+            position: relative;
         }
 
-        .site-title {
-            font-size: 1.25rem;
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 1px;
+            background: #000;
+        }
+
+        header h1 {
+            font-size: 2.25rem;
+            font-weight: 300;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+        }
+
+        header p {
+            font-size: 1rem;
+            color: #666;
             font-weight: 400;
-            color: #111;
-            text-decoration: none;
-            display: inline-block;
-            margin-bottom: 1rem;
-            transition: opacity 0.2s;
-        }
-
-        .site-title:hover {
-            opacity: 0.6;
+            font-style: italic;
+            margin-bottom: 1.5rem;
         }
 
         .subscribe-button {
@@ -48,14 +60,15 @@
             background: #FF0000;
             color: white;
             text-decoration: none;
-            padding: 0.5rem 1rem;
+            padding: 0.625rem 1.25rem;
             border-radius: 2px;
-            font-size: 0.8125rem;
+            font-size: 0.875rem;
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             transition: all 0.2s ease;
-            margin-bottom: 1.5rem;
+            position: relative;
+            margin-top: 0.5rem;
         }
 
         .subscribe-button:hover {
@@ -66,199 +79,314 @@
 
         .subscribe-button::before {
             content: '▶';
-            margin-right: 6px;
-            font-size: 0.7rem;
+            margin-right: 8px;
+            font-size: 0.75rem;
+        }
+
+        .tennis-ball {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #000;
+            border-radius: 50%;
+            margin: 0 3px;
+            animation: bounce 3s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-3px); }
         }
 
         /* Navigation */
         nav {
             display: flex;
             justify-content: center;
-            gap: 3rem;
-            padding-bottom: 2rem;
+            gap: 3.5rem;
+            padding: 3rem 0;
         }
 
         nav a {
             text-decoration: none;
             color: #666;
-            font-size: 0.875rem;
+            font-size: 0.9rem;
             font-weight: 500;
             letter-spacing: 0.02em;
             text-transform: uppercase;
+            position: relative;
             transition: color 0.3s;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #000;
+            transition: width 0.3s ease;
         }
 
         nav a:hover {
             color: #000;
         }
 
-        /* Article */
-        article {
-            max-width: 680px;
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Container */
+        .container {
+            max-width: 720px;
             margin: 0 auto;
-            padding: 4rem 1.5rem;
+            padding: 3rem 1.5rem;
         }
 
-        .post-header {
-            margin-bottom: 3rem;
+        /* Blog Posts */
+        .blog-section {
+            margin-bottom: 6rem;
         }
 
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 1rem;
-            letter-spacing: -0.02em;
+        .section-title {
+            font-size: 0.75rem;
+            color: #000;
+            margin-bottom: 3.5rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
 
-        .post-meta {
-            font-size: 0.875rem;
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #e5e5e5;
+        }
+
+        .blog-post {
+            margin-bottom: 3.5rem;
+            padding-bottom: 3.5rem;
+            border-bottom: 1px solid #f0f0f0;
+            transition: transform 0.3s ease;
+        }
+
+        .blog-post:last-child {
+            border-bottom: none;
+        }
+
+        .blog-post:hover {
+            transform: translateX(4px);
+        }
+
+        .blog-post h3 {
+            font-size: 1.375rem;
+            font-weight: 600;
+            line-height: 1.35;
+            margin-bottom: 0.75rem;
+        }
+
+        .blog-post h3 a {
+            color: #000;
+            text-decoration: none;
+            background: linear-gradient(to right, #000 0%, #000 100%);
+            background-size: 0 1px;
+            background-position: 0 100%;
+            background-repeat: no-repeat;
+            transition: background-size 0.3s ease;
+        }
+
+        .blog-post:hover h3 a {
+            background-size: 100% 1px;
+        }
+
+        .blog-meta {
+            font-size: 0.8125rem;
             color: #999;
+            margin-bottom: 1.25rem;
             font-weight: 500;
             letter-spacing: 0.03em;
             text-transform: uppercase;
         }
 
-        /* Content Styles */
-        .post-content {
-            font-size: 1.0625rem;
+        .blog-post p {
+            font-size: 1rem;
             line-height: 1.75;
-            color: #333;
+            color: #444;
         }
 
-        .post-content p {
-            margin-bottom: 1.5rem;
+        /* Videos */
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3.5rem;
         }
 
-        .post-content h2 {
-            font-size: 1.75rem;
-            font-weight: 600;
-            margin-top: 3rem;
-            margin-bottom: 1.5rem;
-            color: #111;
+        .video-card {
+            cursor: pointer;
+            transition: transform 0.3s ease;
         }
 
-        .post-content h3 {
-            font-size: 1.375rem;
-            font-weight: 600;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            color: #111;
+        .video-card:hover {
+            transform: translateY(-4px);
         }
 
-        .post-content strong {
-            font-weight: 600;
-            color: #111;
+        .video-thumbnail {
+            aspect-ratio: 16/9;
+            border-radius: 8px;
+            margin-bottom: 1.25rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            transition: box-shadow 0.3s ease;
+            background: #f0f0f0;
         }
 
-        .post-content ul, .post-content ol {
-            margin-bottom: 1.5rem;
-            margin-left: 1.5rem;
+        .video-card:hover .video-thumbnail {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
         }
 
-        .post-content li {
-            margin-bottom: 0.5rem;
-            line-height: 1.75;
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
-        .highlight-box {
-            background: #f8f8f8;
-            border-left: 3px solid #111;
-            padding: 1.5rem;
-            margin: 2rem 0;
-            border-radius: 4px;
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 48px;
+            height: 48px;
+            background: rgba(0,0,0,0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.25rem;
+            transition: transform 0.3s ease, background 0.3s ease;
         }
 
-        .highlight-box h4 {
+        .video-card:hover .play-icon {
+            transform: translate(-50%, -50%) scale(1.1);
+            background: rgba(255,0,0,0.9);
+        }
+
+        .video-title {
             font-size: 1rem;
             font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 1rem;
-            color: #111;
+            color: #000;
+            margin-bottom: 0.375rem;
+            line-height: 1.4;
         }
 
-        .specs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .spec-item {
-            padding: 1rem;
-            background: #fafafa;
-            border-radius: 4px;
-        }
-
-        .spec-label {
+        .video-date {
             font-size: 0.8125rem;
-            color: #666;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.25rem;
+            color: #999;
+            font-weight: 500;
+            letter-spacing: 0.02em;
         }
 
-        .spec-value {
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: #111;
-        }
-
-        .rating {
+        /* Link Button */
+        .link-button {
             display: inline-block;
-            margin: 1rem 0;
-        }
-
-        .rating-label {
-            font-size: 0.875rem;
-            color: #666;
-            margin-right: 0.5rem;
-        }
-
-        .stars {
-            color: #111;
-        }
-
-        /* Footer */
-        .post-footer {
-            margin-top: 4rem;
-            padding-top: 2rem;
-            border-top: 1px solid #f0f0f0;
-            text-align: center;
-        }
-
-        .back-link {
-            display: inline-block;
-            color: #111;
+            color: #000;
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 500;
             letter-spacing: 0.03em;
             text-transform: uppercase;
             padding: 0.75rem 1.5rem;
-            border: 1px solid #111;
+            border: 1px solid #000;
             border-radius: 4px;
             transition: all 0.3s ease;
         }
 
-        .back-link:hover {
-            background: #111;
+        .link-button:hover {
+            background: #000;
             color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 8rem;
+            padding: 4rem 1.5rem;
+            text-align: center;
+            background: #fafafa;
+        }
+
+        footer p {
+            color: #666;
+            font-size: 0.875rem;
+            margin-bottom: 1.5rem;
+        }
+
+        footer a {
+            color: #333;
+            text-decoration: none;
+            margin: 0 1.25rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        footer a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #000;
+            transition: width 0.3s ease;
+        }
+
+        footer a:hover::after {
+            width: 100%;
         }
 
         /* Mobile */
         @media (max-width: 640px) {
-            h1 {
-                font-size: 2rem;
+            header {
+                padding: 4rem 1.5rem;
             }
 
-            .post-content {
-                font-size: 1rem;
+            header h1 {
+                font-size: 1.875rem;
             }
 
-            article {
+            nav {
+                gap: 2rem;
+                padding: 2rem 0;
+            }
+
+            nav a {
+                font-size: 0.8rem;
+            }
+
+            .container {
                 padding: 2rem 1.25rem;
+            }
+
+            .videos-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .blog-post:hover {
+                transform: none;
             }
         }
     </style>
@@ -266,129 +394,187 @@
 <body>
     <!-- Header -->
     <header>
-        <a href="index.html" class="site-title">← Scott plays Tennis</a>
+        <h1>Scott plays Tennis</h1>
+        <p>39 countries, one backhand, endless ugly forehands</p>
         <div>
             <a href="https://youtube.com/@ScottPlaysTennis" target="_blank" class="subscribe-button">Subscribe on YouTube</a>
         </div>
-        <nav>
-            <a href="index.html#blog">Blog</a>
-            <a href="index.html#videos">Videos</a>
-            <a href="index.html#about">About</a>
-            <a href="https://youtube.com/@ScottPlaysTennis" target="_blank">YouTube</a>
-        </nav>
     </header>
 
-    <!-- Article -->
-    <article>
-        <div class="post-header">
-            <h1>Grapplesnake Strings Review: Finding My Perfect Setup</h1>
-            <div class="post-meta">September 5, 2025 • 8 min read</div>
-        </div>
+    <!-- Navigation -->
+    <nav>
+        <a href="#blog">Blog</a>
+        <a href="#videos">Videos</a>
+        <a href="#about">About</a>
+        <a href="https://youtube.com/@ScottPlaysTennis" target="_blank">YouTube</a>
+    </nav>
 
-        <div class="post-content">
-            <p><strong>After 15 years of string experimentation hell, I've finally found it.</strong> The setup that makes me actually want to stay on court longer. The one that doesn't leave my arm screaming or my wallet crying. The holy grail: Grapplesnake Tour Mako in the mains, Tour M8 in the crosses.</p>
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Blog Section -->
+        <section id="blog" class="blog-section">
+            <h2 class="section-title">Recent Posts</h2>
+            
+            <article class="blog-post">
+                <h3><a href="grapplesnake-review.html">Grapplesnake Strings Review: Finding My Perfect Setup</a></h3>
+                <div class="blog-meta">September 5, 2025 • 8 min read</div>
+                <p>After testing Grapplesnake's lineup for the past month, I'm impressed. Their Tour M8 (which just won Wimbledon in men's doubles with Julian Cash) delivers incredible control and precision. The Tour Sniper feels like ALU Power but with better comfort and tension maintenance, while the Tour Mako somehow combines power with control — a rare find in poly strings. Here's my full breakdown...</p>
+            </article>
 
-            <p>But let me back up, because arriving at this combination took a month of testing, countless restrings, and more tennis than my USTA captain probably wanted me playing before sectionals.</p>
+            <article class="blog-post">
+                <h3><a href="#">Coming Soon: Diadem Axis 100 Review</a></h3>
+                <div class="blog-meta">Coming soon</div>
+                <p>Breaking down my experience with the Diadem Axis 100. This racket promises control and feel at an aggressive price point. After a month of testing, I've got thoughts on whether it lives up to the hype and how it stacks up against the usual suspects.</p>
+            </article>
 
-            <h2>The Grapplesnake Lineup</h2>
+            <article class="blog-post">
+                <h3><a href="#">Coming Soon: Court of Dreams - Wimbledon in Iowa</a></h3>
+                <div class="blog-meta">In progress</div>
+                <p>The All Iowa Lawn Tennis Club might be the most unexpected tennis gem in America. Grass courts in the middle of Iowa? A full Wimbledon experience complete with strawberries and cream? This is the story of how a group of tennis obsessives created their own slice of SW19 in the heartland.</p>
+            </article>
+        </section>
 
-            <p>Grapplesnake isn't exactly a household name yet, but they're doing something different. While the big brands iterate on the same formulas year after year, these guys are actually engineering solutions to real problems. Their lineup is refreshingly simple: three strings, each with a clear purpose.</p>
-
-            <h3>Tour M8: The Control Freak's Dream</h3>
-
-            <p>This is Grapplesnake's most popular string, and for good reason. Julian Cash just won Wimbledon men's doubles with this in his racket, which should tell you everything about its performance at the highest level.</p>
-
-            <p>The Tour M8 is all about precision and control. It's a shaped poly with a unique profile that bites the ball without being overly harsh on the arm. What surprised me most was the tension maintenance — after 10 hours of play, it still felt crisp and responsive. Most polys I've tried turn into wet noodles after half that time.</p>
-
-            <p><strong>Best for:</strong> Players who live and die by their ability to hit their spots. If you're the type who aims for the lines (and occasionally hits them), this is your string.</p>
-
-            <h3>Tour Sniper: The ALU Power Alternative</h3>
-
-            <p>Here's where things get interesting. The Tour Sniper is aluminum-based, designed to compete directly with Luxilon ALU Power and Babolat RPM Blast. But unlike those arm killers, the Sniper actually has some give to it.</p>
-
-            <p>The feel reminds me of Tour Bite — that crispy, connected sensation — but with noticeably better comfort. I strung it at 52 lbs in my Blade and played three consecutive days without the usual elbow twinge. That alone makes it worth considering if you're an ALU Power refugee like half the 4.5 players I know.</p>
-
-            <p><strong>Best for:</strong> Players who want that "pro string" feel without the physical therapy bills.</p>
-
-            <h3>Tour Mako: The Unicorn</h3>
-
-            <p>This is the string that changed everything for me. Grapplesnake calls it their power string, but that's underselling it. Yes, it's powerful — surprisingly so for a poly — but the real magic is in the feel.</p>
-
-            <p>They've somehow engineered a string that delivers easy power while maintaining control. The surface has a mild texture that grips the ball just enough to keep things predictable. It's round profile should theoretically make it launch balls, but the material composition keeps everything in check. I don't pretend to understand the engineering, but I know what I feel: controlled power that doesn't sacrifice touch.</p>
-
-            <div class="highlight-box">
-                <h4>My Setup Specs</h4>
-                <div class="specs-grid">
-                    <div class="spec-item">
-                        <div class="spec-label">Mains</div>
-                        <div class="spec-value">Tour Mako</div>
-                    </div>
-                    <div class="spec-item">
-                        <div class="spec-label">Crosses</div>
-                        <div class="spec-value">Tour M8</div>
-                    </div>
-                    <div class="spec-item">
-                        <div class="spec-label">Tension</div>
-                        <div class="spec-value">54/52 lbs</div>
-                    </div>
-                    <div class="spec-item">
-                        <div class="spec-label">Racket</div>
-                        <div class="spec-value">Wilson Blade 98</div>
-                    </div>
-                </div>
+        <!-- Videos Section -->
+        <section id="videos">
+            <h2 class="section-title">Latest Videos</h2>
+            
+            <div class="videos-grid" id="videosContainer">
+                <!-- Videos will be populated here -->
             </div>
 
-            <h2>The Hybrid Discovery</h2>
+            <div class="center">
+                <a href="https://youtube.com/@ScottPlaysTennis" target="_blank" class="link-button">View All Videos</a>
+            </div>
+        </section>
 
-            <p>I started by testing each string as a full bed. The M8 gave me surgical precision but left me working too hard for power. The Sniper was comfortable but didn't quite have the pop I wanted. The Mako had the power and feel, but I wanted just a touch more control on my flatter shots.</p>
-
-            <p>Then I tried the hybrid: Mako mains, M8 crosses.</p>
-
-            <p><strong>It's perfect.</strong> And I don't use that word lightly after two decades of chasing string setups.</p>
-
-            <p>The Mako mains provide that effortless power and incredible feel. The ball absolutely explodes off the stringbed, but in a predictable way. Meanwhile, the M8 crosses add just enough control to keep my flat forehand from sailing long. The combination of the textured Mako and shaped M8 creates fantastic spin potential without that grabby, inconsistent feel some textured strings have.</p>
-
-            <h3>What This Setup Does Well</h3>
-
-            <ul>
-                <li><strong>Serve:</strong> The power from the Mako mains adds an easy 5-10 mph without swinging harder. The M8 crosses help with placement on second serves.</li>
-                <li><strong>Groundstrokes:</strong> This is where the magic happens. The feel is pure — you know exactly where the ball is on the strings. Power comes easy, control is always there.</li>
-                <li><strong>Volleys:</strong> The softer response of the hybrid gives great touch at net. No more trampolining balls over the baseline.</li>
-                <li><strong>Spin:</strong> Not quite Solinco Hyper-G levels, but more than enough for heavy topspin when needed.</li>
-            </ul>
-
-            <h3>Durability & Value</h3>
-
-            <p>I'm 15 hours into this setup and there's minimal notching. The Mako mains are holding up better than expected — I was worried the power-oriented construction might sacrifice durability, but that hasn't been the case. At around $15-16 per set, Grapplesnake is priced competitively with other performance polys.</p>
-
-            <h2>Who Should Try This?</h2>
-
-            <p>If you're a 4.0+ player who:</p>
-            <ul>
-                <li>Wants more free power without sacrificing control</li>
-                <li>Values feel and connection to the ball</li>
-                <li>Has been searching for a comfortable poly setup</li>
-                <li>Likes to customize with hybrids</li>
-            </ul>
-
-            <p>Then you owe it to yourself to try this combination. Or at minimum, grab a set of Tour Mako and see what the fuss is about.</p>
-
-            <h2>The Verdict</h2>
-
-            <p>After cycling through ALU Power, RPM Blast, Hyper-G, Tour Bite, and probably a dozen others over the years, I'm done searching. The Mako/M8 hybrid is my setup. Period.</p>
-
-            <p>Is it perfect for everyone? Of course not. String preference is deeply personal, influenced by your swing, your racket, your game style. But if you've been on the poly carousel looking for something that delivers both power and control with actual feel, Grapplesnake might just end your search too.</p>
-
-            <p>The fact that a relatively unknown company is producing strings that can win at Wimbledon while also working for a 4.5 hack like me? That's impressive engineering.</p>
-
-            <p><strong>Final Rating:</strong> 9.5/10</p>
+        <!-- About Section -->
+        <section id="about" style="margin-top: 6rem;">
+            <h2 class="section-title">About</h2>
             
-            <p><em>The only reason it's not a 10? My backhand still sucks. But I can't blame the strings for that.</em></p>
-        </div>
+            <div style="max-width: 600px;">
+                <p style="font-size: 1.125rem; line-height: 1.8; color: #333; margin-bottom: 1.5rem;">
+                    Hey, I'm Scott! I'm a tennis obsessive who's traveled to 39+ countries, always on the hunt for the perfect tennis wall to hit against in new cities. Former NCAA D2 player turned USTA 4.5, still chasing that elusive consistent backhand.
+                </p>
+                
+                <p style="font-size: 1rem; line-height: 1.75; color: #444; margin-bottom: 1.5rem;">
+                    When I'm not producing questionable forehands on camera, I'm building <strong>Fresho</strong> and previously founded <strong>FinMango</strong>, a global organization focused on financial health. My work has somehow made its way to Google Health, WHO, the World Bank, Harvard Research, USAID, and Verily.
+                </p>
+                
+                <p style="font-size: 1rem; line-height: 1.75; color: #444; margin-bottom: 1.5rem;">
+                    I've published in the Journal of Health Education, given TEDx talks in Brazil and Togo, and yet still can't figure out how to consistently hit a kick serve. Life's funny like that.
+                </p>
+                
+                <p style="font-size: 1rem; line-height: 1.75; color: #444; margin-bottom: 2rem;">
+                    This blog and my YouTube channel (Scott Plays Tennis) document my tennis journey — from epic rallies to embarrassing shanks, gear reviews to mental game breakdowns. Subscribe if you want to watch someone who's traveled the world but still gets nervous playing league matches. Also check out The Double Bagel, where my co-host and I break down the beautiful chaos of recreational tennis.</p>
+                
+                <div style="padding-top: 2rem; border-top: 1px solid #f0f0f0;">
+                    <p style="font-size: 0.875rem; color: #666; margin-bottom: 1rem;"><strong style="color: #333;">Tennis Life:</strong></p>
+                    <ul style="list-style: none; font-size: 0.875rem; color: #666; line-height: 1.8;">
+                        <li>🎾 USTA 4.5 Player</li>
+                        <li>🎓 Former NCAA D2 Athlete</li>
+                        <li>🌍 Tennis wall connoisseur (39+ countries and counting)</li>
+                        <li>📺 YouTube: Scott Plays Tennis</li>
+                        <li>🏆 Co-host of The Double Bagel channel</li>
+                        <li>🎯 Current mission: Developing a reliable backhand</li>
+                        <li>💭 Tennis philosophy: Embrace the ugly forehands</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
 
-        <div class="post-footer">
-            <a href="index.html" class="back-link">Back to Home</a>
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Scott plays Tennis</p>
+        <div>
+            <a href="https://youtube.com/@ScottPlaysTennis">YouTube</a>
+            <a href="https://youtube.com/@TheDoubleBagel">The Double Bagel</a>
+            <a href="https://twitter.com/@scottplaystennis">Twitter</a>
+            <a href="mailto:scott@scottplaystennis.com">Email</a>
         </div>
-    </article>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // YouTube Videos Management
+        // ============================================
+        // HOW TO ADD VIDEOS:
+        // 1. Simply paste your YouTube URL in the 'url' field
+        // 2. Add your custom title and date
+        // 3. The thumbnail will be automatically pulled from YouTube
+        // 
+        // Supported URL formats:
+        // - https://www.youtube.com/watch?v=VIDEO_ID
+        // - https://youtu.be/VIDEO_ID
+        // - https://www.youtube.com/embed/VIDEO_ID
+        // - https://www.youtube.com/shorts/VIDEO_ID
+        // ============================================
+        
+        const videos = [
+            {
+                url: "https://www.youtube.com/watch?v=Gg9vzJW_oGQ",
+                title: "5 minute rally",
+                date: "Recent"
+            },
+            {
+                url: "https://www.youtube.com/watch?v=blQCLnVEz1o",
+                title: "Wimbledon in Iowa",
+                date: "Recent"
+            },
+            {
+                url: "https://www.youtube.com/shorts/M-MWfWdy-gk",
+                title: "Lightening Tennis",
+                date: "Recent"
+            },
+            // Add more videos below as you upload them
+        ];
+
+        // Function to extract YouTube video ID from URL
+        function getYouTubeId(url) {
+            const regex = /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/|youtube\.com\/shorts\/)([^&\n?#]+)/;
+            const match = url.match(regex);
+            return match ? match[1] : null;
+        }
+
+        // Function to render videos
+        function renderVideos() {
+            const container = document.getElementById('videosContainer');
+            
+            videos.forEach(video => {
+                const videoId = getYouTubeId(video.url);
+                if (!videoId) return; // Skip if invalid URL
+                
+                const videoCard = document.createElement('div');
+                videoCard.className = 'video-card';
+                videoCard.onclick = () => window.open(video.url, '_blank');
+                
+                videoCard.innerHTML = `
+                    <div class="video-thumbnail">
+                        <img src="https://img.youtube.com/vi/${videoId}/maxresdefault.jpg" 
+                             alt="${video.title}"
+                             onerror="this.src='https://img.youtube.com/vi/${videoId}/hqdefault.jpg'">
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <div class="video-title">${video.title}</div>
+                    <div class="video-date">${video.date}</div>
+                `;
+                
+                container.appendChild(videoCard);
+            });
+        }
+
+        // Render videos when page loads
+        document.addEventListener('DOMContentLoaded', renderVideos);
+    </script>
 </body>
 </html>
