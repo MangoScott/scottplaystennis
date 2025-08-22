@@ -48,6 +48,35 @@
             color: #666;
             font-weight: 400;
             font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+
+        .subscribe-button {
+            display: inline-block;
+            background: #FF0000;
+            color: white;
+            text-decoration: none;
+            padding: 0.625rem 1.25rem;
+            border-radius: 2px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.2s ease;
+            position: relative;
+            margin-top: 0.5rem;
+        }
+
+        .subscribe-button:hover {
+            background: #CC0000;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3);
+        }
+
+        .subscribe-button::before {
+            content: '▶';
+            margin-right: 8px;
+            font-size: 0.75rem;
         }
 
         .tennis-ball {
@@ -363,6 +392,9 @@
     <header>
         <h1>Scott plays Tennis</h1>
         <p>39 countries, one backhand, endless ugly forehands</p>
+        <div>
+            <a href="https://youtube.com/@ScottPlaysTennis" target="_blank" class="subscribe-button">Subscribe on YouTube</a>
+        </div>
     </header>
 
     <!-- Navigation -->
@@ -381,20 +413,20 @@
             
             <article class="blog-post">
                 <h3><a href="grapplesnake-review.html">Grapplesnake Strings Review: Finding My Perfect Setup</a></h3>
-                <div class="blog-meta">March 20, 2025 • 8 min read</div>
+                <div class="blog-meta">September 5, 2025 • 8 min read</div>
                 <p>After testing Grapplesnake's lineup for the past month, I'm impressed. Their Tour M8 (which just won Wimbledon in men's doubles with Julian Cash) delivers incredible control and precision. The Tour Sniper feels like ALU Power but with better comfort and tension maintenance, while the Tour Mako somehow combines power with control — a rare find in poly strings. Here's my full breakdown...</p>
             </article>
 
             <article class="blog-post">
-                <h3><a href="#">Coming Soon: My Experience at USTA 4.5 Sectionals</a></h3>
-                <div class="blog-meta">Coming next week</div>
-                <p>Still processing what happened last weekend. Spoiler: there were epic rallies, questionable line calls, and one backhand that actually went where I wanted it to go. Full recap coming soon.</p>
+                <h3><a href="#">Coming Soon: Diadem Axis 100 Review</a></h3>
+                <div class="blog-meta">Coming soon</div>
+                <p>Breaking down my experience with the Diadem Axis 100. This racket promises control and feel at an aggressive price point. After a month of testing, I've got thoughts on whether it lives up to the hype and how it stacks up against the usual suspects.</p>
             </article>
 
             <article class="blog-post">
-                <h3><a href="#">Coming Soon: Tennis Walls Around the World</a></h3>
+                <h3><a href="#">Coming Soon: Court of Dreams - Wimbledon in Iowa</a></h3>
                 <div class="blog-meta">In progress</div>
-                <p>A comprehensive guide to the best hitting walls I've found across 39 countries. From hidden gems in European cities to unexpected finds in Southeast Asia. Because sometimes you just need to hit alone at 6am.</p>
+                <p>The All Iowa Lawn Tennis Club might be the most unexpected tennis gem in America. Grass courts in the middle of Iowa? A full Wimbledon experience complete with strawberries and cream? This is the story of how a group of tennis obsessives created their own slice of SW19 in the heartland.</p>
             </article>
         </section>
 
@@ -481,30 +513,31 @@
         // - https://www.youtube.com/watch?v=VIDEO_ID
         // - https://youtu.be/VIDEO_ID
         // - https://www.youtube.com/embed/VIDEO_ID
+        // - https://www.youtube.com/shorts/VIDEO_ID
         // ============================================
         
         const videos = [
             {
-                url: "https://www.youtube.com/watch?v=EXAMPLE1",  // Replace with your actual Scott Plays Tennis video URL
-                title: "Match Play: Local Tournament Finals",
-                date: "2 days ago • 45 mins"
+                url: "https://www.youtube.com/watch?v=Gg9vzJW_oGQ",
+                title: "5 minute rally",
+                date: "Recent"
             },
             {
-                url: "https://www.youtube.com/watch?v=EXAMPLE2",  // Replace with your actual Scott Plays Tennis video URL
-                title: "Backhand Slice Tutorial",
-                date: "1 week ago • 12 mins"
+                url: "https://www.youtube.com/watch?v=blQCLnVEz1o",
+                title: "Wimbledon in Iowa",
+                date: "Recent"
             },
             {
-                url: "https://www.youtube.com/watch?v=EXAMPLE3",  // Replace with your actual Scott Plays Tennis video URL
-                title: "Practice Session Highlights",
-                date: "2 weeks ago • 8 mins"
+                url: "https://www.youtube.com/shorts/M-MWfWdy-gk",
+                title: "Lightening Tennis",
+                date: "Recent"
             },
-            // Add more videos here in the same format
+            // Add more videos below as you upload them
         ];
 
         // Function to extract YouTube video ID from URL
         function getYouTubeId(url) {
-            const regex = /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([^&\n?#]+)/;
+            const regex = /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/|youtube\.com\/shorts\/)([^&\n?#]+)/;
             const match = url.match(regex);
             return match ? match[1] : null;
         }
